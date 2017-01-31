@@ -18,40 +18,52 @@
 	<div class="main-body">
 		<div class="side-bar">
 			<form id="form1">
-				<fieldset>
-					<label for="length">Song Length:</label>
+				<div class="fieldset song-length">
+					<label for="length">Song Length:</label><br>
 					<input type="range" name="length" min="1" max="7">
-				</fieldset>
+				</div>
 
-				<fieldset>
-					<label for="artist">Artist:</label>
+				<div class="fieldset artist-select">
+					<label for="artist">Artist:</label><br>
 					<select name="artist">
 						<option value="artist1">Artist1</option>
 						<option value="artist2">Artist2</option>
 						<option value="artist3">Artist3</option>
 						<option value="artist4">Artist4</option>
 					</select>
-				</fieldset>
+				</div>
 
-				<fieldset>
-					<label for="album">Artist:</label>
+				<div class="fieldset album-select">
+					<label for="album">Artist:</label><br>
 					<select name="album">
 						<option value="album1">Album1</option>
 						<option value="album2">Album2</option>
 						<option value="album3">Album3</option>
 						<option value="album4">Album4</option>
 					</select>
-				</fieldset>
+				</div>
 
-				<fieldset>
+				<div class="fieldset checkbox">
 					<label for="genre">Genre:</label>
-					<input type="checkbox" name="genre" value="rock"><span>Rock</span>
-					<input type="checkbox" name="genre" value="Pop"><span>Pop</span>
-					<input type="checkbox" name="genre" value="Blues"><span>Blues</span>
-					<input type="checkbox" name="genre" value="Classical"><span>Classical</span>
-					<input type="checkbox" name="genre" value="Jazz"><span>Jazz</span>
-					<input type="checkbox" name="genre" value="Hip Hop"><span>Hip Hop</span>
-				</fieldset>
+					<div>
+						<input type="checkbox" name="genre" value="rock"><span>Rock</span>
+					</div>
+					<div>
+						<input type="checkbox" name="genre" value="Pop"><span>Pop</span><br>
+					</div>
+					<div>
+						<input type="checkbox" name="genre" value="Blues"><span>Blues</span>
+					</div>
+					<div>
+						<input type="checkbox" name="genre" value="Classical"><span>Classical</span><br>
+					</div>
+					<div>
+						<input type="checkbox" name="genre" value="Jazz"><span>Jazz</span>
+					</div>
+					<div>
+						<input type="checkbox" name="genre" value="Hip Hop"><span>Hip Hop</span>
+					</div>
+				</div>
 			</form>
 
 			<button type="submit" form="form1" value="Filter">Filter</button>	

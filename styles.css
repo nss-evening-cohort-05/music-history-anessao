@@ -23,17 +23,53 @@ a.active {
 	color: black;
 }
 
+
 /*MAIN BODY STYLES*/
 .main-body {
 	width: 100%;
 	display: inline-flex;
 }
+
+
+/*SIDE BAR FORM STYLES*/
+
 .side-bar {
-	width: 30%;
+	width: 180px;
 	height: 100%;
 	background-color: #4DD7FA;
 	border: 2px solid black;
 }
+.fieldset {
+	width: 95%;
+	margin-left: 5%;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+select {
+	width: 130px;
+}
+
+.checkbox {
+	width: 200px;
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+label {
+	width: 100%;
+}
+.checkbox div {
+	width: 80px;
+}
+button {
+	width: 90px;
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}
+
+
+
 .results {
 
 

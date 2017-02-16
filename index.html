@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Music History</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:800|Roboto" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<div class="nav-bar">
+			<ul>
+				<li><a href="#" class="active">View Music</a><span> | </span></li>
+				<li><a href="#">Add Music</a><span> | </span></li>
+				<li><a href="#">Profile</a></li>
+			</ul>
+		</div>
+	</header>
+	<div class="main-body">
+		<div class="side-bar">
+			<form id="form1">
+				<div class="fieldset song-length">
+					<label for="length">Song Length:</label><br>
+					<input type="range" name="length" min="1" max="7">
+				</div>
+
+				<div class="fieldset artist-select styled-select">
+					<label for="artist">Artist:</label><br>
+					<select name="artist">
+						<option value="pink-floyd">Pink Floyd</option>
+						<option value="artist2">Abandoned Pools</option>
+						<option value="artist3">Beastie Boys</option>
+						<option value="artist4">Hopsin</option>
+						<option value="artist4">KONGOS</option>
+					</select>
+				</div>
+
+				<div class="fieldset album-select styled-select">
+					<label for="album">Album:</label><br>
+					<select name="album">
+						<option value="animals">Animals</option>
+						<option value="album2">Humanistic</option>
+						<option value="album3">Licensed to Ill</option>
+						<option value="album4">Raw</option>
+						<option value="album4">Take it From Me</option>
+					</select>
+				</div>
+
+				<div class="fieldset checkbox">
+					<label for="genre">Genre:</label>
+					<div>
+						<input type="checkbox" name="genre" value="rock"><span>Rock</span>
+					</div>
+					<div>
+						<input type="checkbox" name="genre" value="pop"><span>Pop</span><br>
+					</div>
+					<div>
+						<input type="checkbox" name="genre" value="blues"><span>Blues</span>
+					</div>
+					<div>
+						<input type="checkbox" name="genre" value="classical"><span>Classical</span><br>
+					</div>
+					<div>
+						<input type="checkbox" name="genre" value="jazz"><span>Jazz</span>
+					</div>
+					<div>
+						<input type="checkbox" name="genre" value="hiphop"><span>Hip Hop</span>
+					</div>
+				</div>
+			</form>
+
+			<button type="submit" form="form1" value="Filter">Filter</button>	
+		</div>
+		<div class="results" id="songList">
+			<!-- <section>
+				<h1 class = "title"></h1>
+				<div class="song-info">
+					<span class="artist-name">Hopsin</span>
+					<div>|</div>
+					<span class="album-name">Raw</span><div>|</div>
+					<span class="genre-name">Hip Hop</span>
+				</div>
+			</section>
+			<section>
+				<h1>Girls</h1>
+				<div class="song-info">
+					<span class="artist-name">Beastie Boys</span>
+					<div>|</div>
+					<span class="album-name">Licensed to Ill</span><div>|</div>
+					<span class="genre-name">Hip Hop</span>
+				</div>
+			</section>
+			<section>
+				<h1>The Remedy</h1>
+				<div class="song-info">
+					<span class="artist-name">Abandoned Pools</span>
+					<div>|</div>
+					<span class="album-name">Humanistic</span><div>|</div>
+					<span class="genre-name">Rock</span>
+				</div>
+			</section>
+			<section>
+				<h1>Pigs on the Wing  1</h1>
+				<div class="song-info">
+					<span class="artist-name">Pink Floyd</span>
+					<div>|</div>
+					<span class="album-name">Animals</span><div>|</div>
+					<span class="genre-name">Rock</span>
+				</div>
+			</section> -->
+		</div>
+	</div>
+	<script type="text/javascript" src="songs.js"></script>
+</body>
+</html>

@@ -1,26 +1,63 @@
+//VARIABLES
 var songs = [];
-var songDiv = document.getElementById("songList");
+var artist = "";
+var album = "";
+var songName = "";
+var songDiv = document.getElementById("songList")
 
-songs[songs.length] = "Legs > by Z*!ZTop on the album Eliminator";
-songs[songs.length] = "The Logical Song > by Supertr@amp on the album Breakfast in America";
-songs[songs.length] = "Another Brick in the Wall > by Pink Floyd on the album The Wall";
-songs[songs.length] = "Welco(me to the Jungle > by Guns & Roses on the album Appetite for Destruction";
-songs[songs.length] = "Ironi!c > by Alanis Moris*ette on the album Jagged Little Pill";
+/********************************
+INITIAL PRINT TO DOM
+********************************/
 
-function addSongsEnd(firstSong) {
-	songs.push(firstSong);
+function songsToDOM(array) {
+	var songListString = "";
+	for (let x = 0; x < array.length; x++) {
+		songListString += `<section><h1 class="title" id="title">${array[x].song}</h1>`;
+		songListString += `<span class="artist-name" id="artist-name">${array[x].artist}</span> |`
+		songListString += `<span class="album-name" id="album-name">${array[x].album}<button class="btn">DELETE</button></span></section>`
+	}
+	songDiv.innerHTML = songListString;
+};
+
+function buildSongData(data){
+  	for (let y = 0; y < data.songs.length; y++) {
+  		songs.push(data.songs[y]);
+  	}
 }
-function addSongsBeggining(lastSong) {
-	songs.unshift(lastSong);
-}
 
-addSongsEnd("The Remedy by Abandoned Pools on the album Humanistic");
-addSongsBeggining("Pigs On The Wing by Pink Floyd on the album Animals");
 
-var newList = [];
-for (var i = 0; i < songs.length; i++){
-	var fixedSongs = songs[i].toString();
-	fixedSongs = fixedSongs.replace(/[.*+?!^${}()|@]/g, '').replace(/\s[>]/g, '');
-	newList.push(fixedSongs + "<br>");
-}
-songDiv.innerHTML = "<div class='song-info'>" + newList.toString().replace(/,/g, '') + "</div>";
+/********************************
+XHR PRODUCTS FUNCTION EXECUTIONS
+********************************/
+
+function songsLoad(){
+	var data = JSON.parse(this.responseText);
+	buildSongData(data);
+	songsToDOM(songs);
+};
+
+function loadFail(){
+	songDiv.innerHTML = "Oops... Song information isn't loading!"
+};
+
+/********************************
+XMLH REQUEST FOR SONG LIST
+********************************/
+
+var myRequest = new XMLHttpRequest();
+myRequest.addEventListener("load", songsLoad);
+myRequest.addEventListener("error", loadFail);
+myRequest.open("GET", "songList.json");
+myRequest.send();
+
+
+
+
+
+
+
+
+
+
+
+

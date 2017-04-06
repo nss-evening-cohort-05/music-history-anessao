@@ -12,11 +12,21 @@ INITIAL PRINT TO DOM
 function songsToDOM(array) {
 	var songListString = "";
 	for (let x = 0; x < array.length; x++) {
-		songListString += `<section><h1 class="title" id="title">${array[x].song}</h1>`;
+		var arrayLength = x + array.length;
+		array[x].id = arrayLength;
+		songListString += `<section id="${arrayLength}"><h1 class="title" id="title">${array[x].song}</h1>`;
 		songListString += `<span class="artist-name" id="artist-name">${array[x].artist}</span> |`
-		songListString += `<span class="album-name" id="album-name">${array[x].album}<button class="btn">DELETE</button></span></section>`
+		songListString += `<span class="album-name" id="album-name">${array[x].album}<button id="deleteBtn" class="deleteBtn">DELETE</button></span></section>`
 	}
 	songDiv.innerHTML = songListString;
+	
+	var moreBtn = document.getElementById("moreBtn");
+	var deleteBtn = document.getElementsByClassName("deleteBtn");
+	moreBtn.addEventListener("click", moreClick)
+	for (let i = 0; i < deleteBtn.length; i++){
+		deleteBtn[i].addEventListener("click", deleteDiv);
+	}
+
 };
 
 function buildSongData(data){
@@ -24,7 +34,6 @@ function buildSongData(data){
   		songs.push(data.songs[y]);
   	}
 }
-
 
 /********************************
 XHR PRODUCTS FUNCTION EXECUTIONS
@@ -50,6 +59,28 @@ myRequest.addEventListener("error", loadFail);
 myRequest.open("GET", "songList.json");
 myRequest.send();
 
+
+
+function moreClick () {
+	var myRequest2 = new XMLHttpRequest();
+	myRequest2.addEventListener("load", songsLoad);
+	myRequest2.addEventListener("error", loadFail);
+	myRequest2.open("GET", "songList2.json");
+	myRequest2.send();
+
+	var clickedBtn = document.getElementById("moreBtn");
+	clickedBtn.disabled = true;
+};
+
+function deleteDiv (e) {
+	var arrayId = e.target.parentNode.parentNode.id;
+	for (let x = 0; x < songs.length; x++) {
+		if (parseInt(arrayId) === songs[x].id) {
+			songs.splice(x, 1);
+		}
+	}
+	songsToDOM(songs);
+}
 
 
 

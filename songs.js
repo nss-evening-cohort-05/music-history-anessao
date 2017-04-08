@@ -1,86 +1,62 @@
-//VARIABLES
+//DOM OBJECT FROM REQUESTS - built by data files and referenced for DOM printing
 var songs = [];
-// var songDiv = document.getElementById("songList")
 
 //********************************
-//INITIAL PRINT TO DOM
+//AJAX REQUEST FUNCTION - works because the data structures are the same
+//********************************
+function myAjaxRequest (urlData) {
+	$.ajax({
+		url: urlData
+	}).done(function(data){
+		for (let y = 0; y < data.songs.length; y++) {
+			songs.push(data.songs[y]);
+		}
+		songsToDOM(songs);
+	}).fail(function(error){
+		console.log(error);
+	});
+}
+
+//********************************
+//INITIAL PRINT TO DOM FUNCTION
 //********************************
 
 function songsToDOM(array) {
 	for (let x = 0; x < array.length; x++) {
-		var arrayLength = x + array.length;
+		//SPECIAL ID - reference for "delete" function
+		var arrayLength = x + array.length; 
 		array[x].id = arrayLength;
 
+		//FUNCTION TO BUILD TO DOM
 		$("#songList").append(`<section id="${arrayLength}"><h1 class="title" id="title">${array[x].song}</h1><span class="artist-name" id="artist-name">${array[x].artist}</span> |<span class="album-name" id="album-name">${array[x].album}<button id="deleteBtn" class="deleteBtn">DELETE</button></span></section>`);
 	}
+	//EVENT LISTENERS ON DYNAMIC BUTTONS
 	$("#moreBtn").click(moreClick);
 	$(".deleteBtn").click(deleteDiv);
 };
 
-function buildSongData(data){
-  	for (let y = 0; y < data.songs.length; y++) {
-  		songs.push(data.songs[y]);
-  	}
-}
 
-//********************************
-//XHR PRODUCTS FUNCTION EXECUTIONS
-//********************************
-
-function songsLoad(){
-	var data = JSON.parse(this.responseText);
-	buildSongData(data);
-	songsToDOM(songs);
-};
-
-function loadFail(){
-	$("#songList").html("Oops... Song information isn't loading!");
-};
-
-//********************************
-//XMLH REQUEST FOR SONG LIST
-//********************************
-
-var myRequest = new XMLHttpRequest();
-myRequest.addEventListener("load", songsLoad);
-myRequest.addEventListener("error", loadFail);
-myRequest.open("GET", "songList.json");
-myRequest.send();
-
-
-
+//CLICKING "MORE" BUTTON
 function moreClick () {
-	var myRequest2 = new XMLHttpRequest();
-	myRequest2.addEventListener("load", songsLoad);
-	myRequest2.addEventListener("error", loadFail);
-	myRequest2.open("GET", "songList2.json");
-	myRequest2.send();
-
+	$("#songList").text(''); //RESETS DIV - fixes logical issue of double adding the array when deleting
+	myAjaxRequest("songList2.json");
 	$("#moreBtn").prop("disabled", true);
 };
 
+//DELETING SONGS FROM LIST BUTTON
 function deleteDiv (e) {
-	var deleting = e.target;
-	var test = $(deleting).parentsUntil("#songList", "section")[0].id;
+	var targetDiv = e.target;
+	var test = $(targetDiv).parentsUntil("#songList", "section")[0].id;
 	for (let x = 0; x < songs.length; x++) {
 		if (parseInt(test) === songs[x].id) {
-			console.log("if passing?")
 			songs.splice(x, 1);
 		}
 	}
-	$(deleting).parentsUntil("#songList", "section").remove();
+	$(targetDiv).parentsUntil("#songList", "section").remove();
 }
 
-// function deleteDiv (e) {
-// 	var arrayId = e.target.parentNode.parentNode.id;
-// 	for (let x = 0; x < songs.length; x++) {
-// 		if (parseInt(arrayId) === songs[x].id) {
-// 			songs.splice(x, 1);
-// 		}
-// 	}
-// 	songsToDOM(songs);
-// }
-
+//INITIAL AJAX REQUEST
+myAjaxRequest("songList.json");
 
 
 

@@ -1,0 +1,31 @@
+<div class="container">
+	<div class="panel panel-warning">
+	  <!-- Default panel contents -->
+	  <div class="panel-heading">Panel heading</div>
+	  <div class="panel-body">
+		  <!-- Table -->
+		  <table class="table">
+				<thead>
+					<tr>
+						<th>Artist</th>
+						<th>Album</th>
+						<th>Song Name</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="song in songs">
+						<td><p>{{song.artist}}</p></td>
+						<td><p>{{song.album}}</p></td>
+						<td><p>{{song.song}}</p></td>
+						<td>
+							<button class="btn fa fa-trash-o"></button>
+							<button class="btn fa fa-pencil-square-o"></button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+

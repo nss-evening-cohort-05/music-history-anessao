@@ -1,0 +1,24 @@
+{
+    "songs": {
+        "song0": {
+            "artist": "Glitch Mob",
+            "album": "Drink The Sea",
+            "song": "Animus Vox"
+        },
+        "song1": {
+            "artist": "Linkin Park",
+            "album": "Once Before",
+            "song": "Bleed it Out"
+        },
+        "song2": {
+            "artist": "Archive",
+            "album": "Controlling Crowds",
+            "song": "Bullets"
+        },
+        "song3": {
+          "artist": "Audioslave",
+          "album": "Out of Exile",
+          "song": "Doesn't Remind Me"
+        }
+    }
+}

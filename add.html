@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Music History</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:800|Roboto" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<div class="nav-bar">
+			<ul>
+				<li><a href="index.html">View Music</a><span> | </span></li>
+				<li><a href="add.html" class="active">Add Music</a><span> | </span></li>
+				<li><a href="#">Profile</a></li>
+			</ul>
+		</div>
+	</header>
+	<div class="main-body">
+		<div class="results" id="addSong">
+			<div class="add-song-form">
+
+				<!-- ////////USER INPUT FORM\\\\\\\\ -->
+				<label for="song-input">Enter Song Name:</label><br>
+				<input type="text" name="song-input" class="songForm-input" id="song-input"><br>
+				
+				<label for="artist-input" class="songForm-input">Enter Artist Name:</label><br>
+				<input type="text" name="artist-input"><br>
+
+				<label for="album-input" class="songForm-input">Enter Album Name:</label><br>
+				<input type="text" name="album-input"><br>
+				<button id="addButton" class="button">ADD</button>
+			</div>	
+		</div>
+	</div>
+	<script type="text/javascript" src="songs.js"></script>
+</body>
+</html>

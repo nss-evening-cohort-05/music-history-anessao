@@ -1,9 +1,9 @@
-app.controller("SongListCtrl", function($scope, SongFactory) {
+app.controller("SongListCtrl", function($rootScope, $scope, SongFactory) {
 	
 	$scope.songs = [];
 
 	let getSongs = () => {
-	  SongFactory.getSongList().then((itemz) => {
+	  SongFactory.getSongList($rootScope.user.uid).then((itemz) => {
 	    $scope.songs = itemz;
 	  }).catch((error) => {
 	    console.log("get error", error);
@@ -11,5 +11,13 @@ app.controller("SongListCtrl", function($scope, SongFactory) {
 	};
 
 	getSongs();
-  console.log($scope.songs);
+
+  $scope.deleteSelected = (id) => {
+    SongFactory.deleteSong(id).then(() => {
+      getSongs();
+    }).catch((error) => {
+      console.log("delete Item error", error);
+    });
+  };
+
 });

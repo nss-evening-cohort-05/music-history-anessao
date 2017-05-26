@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="panel panel-warning">
 	  <!-- Default panel contents -->
-	  <div class="panel-heading">Panel heading</div>
+	  <div class="panel-heading">Your Songs</div>
 	  <div class="panel-body">
 		  <!-- Table -->
 		  <table class="table">
@@ -18,8 +18,8 @@
 						<td><p>{{song.album}}</p></td>
 						<td><p>{{song.song}}</p></td>
 						<td>
-							<button class="btn fa fa-trash-o"></button>
-							<button class="btn fa fa-pencil-square-o"></button>
+							<button class="btn fa fa-trash-o btn-warning" ng-click="deleteSelected(song.id)"></button>
+							<button class="btn btn-info"><a class="fa fa-pencil-square-o pull-right" ng-href="#!/song/view/{{song.id}}"></a></button>
 						</td>
 					</tr>
 				</tbody>

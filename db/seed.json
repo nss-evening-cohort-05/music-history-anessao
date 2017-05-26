@@ -3,22 +3,36 @@
         "song0": {
             "artist": "Glitch Mob",
             "album": "Drink The Sea",
-            "song": "Animus Vox"
+            "song": "Animus Vox",
+            "uid": "ymorZRwe34M1UJyfV4dY1XDiYzS2"
         },
         "song1": {
             "artist": "Linkin Park",
             "album": "Once Before",
-            "song": "Bleed it Out"
+            "song": "Bleed it Out",
+            "uid": "ymorZRwe34M1UJyfV4dY1XDiYzS2"
         },
         "song2": {
             "artist": "Archive",
             "album": "Controlling Crowds",
-            "song": "Bullets"
+            "song": "Bullets",
+            "uid": "GOi4QUTHVKYMCl39MMiMsi6R1kM2"
         },
         "song3": {
           "artist": "Audioslave",
           "album": "Out of Exile",
-          "song": "Doesn't Remind Me"
+          "song": "Doesn't Remind Me",
+          "uid": "GOi4QUTHVKYMCl39MMiMsi6R1kM2"
+        }
+    },
+    "users": {
+        "user0": {
+            "uid": "GOi4QUTHVKYMCl39MMiMsi6R1kM2",
+            "username": "a"
+        },
+        "user1": {
+            "uid": "ymorZRwe34M1UJyfV4dY1XDiYzS2",
+            "username": "b"
         }
     }
 }
